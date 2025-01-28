@@ -13,7 +13,7 @@ public class Viewer extends JPanel {
     public Viewer(Board board) {
         this.board = board;
         setPreferredSize(new Dimension(board.getGrid()[0].length * CELL_SIZE + 2 * BORDER_WIDTH, board.getGrid().length * CELL_SIZE + 2 * BORDER_WIDTH));
-        setBackground(Color.WHITE);
+        setBackground(Color.GRAY);
     }
 
     protected void paintComponent(Graphics g) {
@@ -58,7 +58,7 @@ public class Viewer extends JPanel {
         }
 
         if (model != null) {
-            int[][] shape = model.getFigure();
+            int[][] shape = model.getShape();
             int x = model.getX();
             int y = model.getY();
 

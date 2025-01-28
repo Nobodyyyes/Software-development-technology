@@ -5,19 +5,19 @@ import java.util.Random;
 
 public class Model {
 
-    private int[][] figure;
+    private int[][] shape;
     private int x, y;
     private Color color;
 
-    public Model(int[][] figure) {
-        this.figure = figure;
+    public Model(int[][] shape) {
+        this.shape = shape;
         this.x = 0;
         this.y = 0;
         this.color = generateRandomColor();
     }
 
-    public int[][] getFigure() {
-        return figure;
+    public int[][] getShape() {
+        return shape;
     }
 
     public int getX() {
@@ -45,13 +45,13 @@ public class Model {
     }
 
     public void rotate(int boardWidth, int boardHeight, int[][] grid) {
-        int rows = figure.length;
-        int cols = figure[0].length;
+        int rows = shape.length;
+        int cols = shape[0].length;
         int[][] rotatedFigure = new int[cols][rows];
 
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                rotatedFigure[col][rows - 1 - row] = figure[row][col];
+                rotatedFigure[col][rows - 1 - row] = shape[row][col];
             }
         }
 
@@ -68,7 +68,7 @@ public class Model {
             }
         }
 
-        figure = rotatedFigure;
+        shape = rotatedFigure;
     }
 
     private Color generateRandomColor() {

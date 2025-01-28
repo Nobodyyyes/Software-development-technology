@@ -27,7 +27,7 @@ public class Board {
     }
 
     public Boolean canMoveLeft() {
-        int[][] shape = currentModel.getFigure();
+        int[][] shape = currentModel.getShape();
         int x = currentModel.getX();
         int y = currentModel.getY();
 
@@ -43,11 +43,12 @@ public class Board {
                 }
             }
         }
+
         return true;
     }
 
     public Boolean canMoveRight() {
-        int[][] shape = currentModel.getFigure();
+        int[][] shape = currentModel.getShape();
         int x = currentModel.getX();
         int y = currentModel.getY();
 
@@ -63,11 +64,12 @@ public class Board {
                 }
             }
         }
+
         return true;
     }
 
     public Boolean canMoveDown() {
-        int[][] shape = currentModel.getFigure();
+        int[][] shape = currentModel.getShape();
         int x = currentModel.getX();
         int y = currentModel.getY();
 
@@ -83,6 +85,7 @@ public class Board {
                 }
             }
         }
+
         return true;
     }
 
@@ -94,7 +97,7 @@ public class Board {
         if (canMoveDown()) {
             currentModel.moveDown();
         } else {
-            int[][] shape = currentModel.getFigure();
+            int[][] shape = currentModel.getShape();
             int x = currentModel.getX();
             int y = currentModel.getY();
 
@@ -158,7 +161,7 @@ public class Board {
     }
 
     public boolean isGameOver() {
-        int[][] shape = currentModel.getFigure();
+        int[][] shape = currentModel.getShape();
         int x = currentModel.getX();
         int y = currentModel.getY();
 
