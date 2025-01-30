@@ -4,7 +4,14 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
+        while(true) {
+            if (!startGame()) {
+                break;
+            }
+        }
+    }
 
+    private static boolean startGame() {
         JFrame frame = new JFrame("Tetris");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
@@ -26,8 +33,15 @@ public class Main {
                 board.moveModelDown();
 
                 if (board.isGameOver()) {
-                    System.out.println("Games over!");
-                    break;
+                    int choice = showGameOverDialog(frame);
+
+                    if (choice == 0) {
+                        frame.dispose();
+                        return true;
+                    } else {
+                        frame.dispose();
+                        return false;
+                    }
                 }
 
                 viewer.repaint();
@@ -35,5 +49,19 @@ public class Main {
                 e.printStackTrace();
             }
         }
+    }
+
+    private static int showGameOverDialog(JFrame jFrame) {
+        String[] options = {"Рестарт", "Выйти"};
+        return JOptionPane.showOptionDialog(
+                jFrame,
+                "Игра окончена! Что хотите сделать?",
+                "Game over!",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                null,
+                options,
+                options[0]
+        );
     }
 }
