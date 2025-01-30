@@ -13,6 +13,11 @@ public class Controller extends KeyAdapter {
         this.viewer = viewer;
     }
 
+    /**
+     * Handles key press events to control the game.
+     *
+     * @param e the KeyEvent triggered by a key press
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {

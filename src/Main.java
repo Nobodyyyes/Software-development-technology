@@ -4,13 +4,23 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        while(true) {
+        while (true) {
             if (!startGame()) {
                 break;
             }
         }
     }
 
+    /**
+     * Starts the Tetris game.
+     * <p>
+     * This method initializes the game window, board, viewer, and controller.
+     * It then enters the main game loop where the game state is updated and
+     * rendered. If the game is over, a dialog is shown to the user with options
+     * to restart or exit the game.
+     *
+     * @return a boolean indicating whether the game should be restarted (true) or exited (false)
+     */
     private static boolean startGame() {
         JFrame frame = new JFrame("Tetris");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,6 +61,13 @@ public class Main {
         }
     }
 
+    /**
+     * Displays a game over dialog with options to restart or exit the game.
+     *
+     * @param jFrame the parent frame for the dialog
+     * @return an integer indicating the user's choice:
+     * 0 for restart, 1 for exit
+     */
     private static int showGameOverDialog(JFrame jFrame) {
         String[] options = {"Рестарт", "Выйти"};
         return JOptionPane.showOptionDialog(

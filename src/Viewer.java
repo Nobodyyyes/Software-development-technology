@@ -16,6 +16,11 @@ public class Viewer extends JPanel {
         setBackground(Color.GRAY);
     }
 
+    /**
+     * Paints the component by drawing the board and the border.
+     *
+     * @param g the Graphics object used for drawing
+     */
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         drawBoard(g);
@@ -41,8 +46,17 @@ public class Viewer extends JPanel {
         g.fillRect(0, 0, BORDER_WIDTH, getHeight());
         g.fillRect(0, getHeight() - BORDER_WIDTH, getWidth(), BORDER_WIDTH);
         g.fillRect(getWidth() - BORDER_WIDTH, 0, BORDER_WIDTH, getHeight());
+
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Arial", Font.BOLD, 20));
+        g.drawString("Score: " + board.getScore(), 10, 20);
     }
 
+    /**
+     * Draws the current state of the board, including the placed blocks and the current model.
+     *
+     * @param g the Graphics object used for drawing
+     */
     private void drawBoard(Graphics g) {
         int[][] grid = board.getGrid();
         Model model = board.getCurrentModel();
@@ -72,6 +86,14 @@ public class Viewer extends JPanel {
         }
     }
 
+    /**
+     * Draws a single block on the board.
+     *
+     * @param g     the Graphics object used for drawing
+     * @param x     the x-coordinate of the block
+     * @param y     the y-coordinate of the block
+     * @param color the color of the block
+     */
     private void drawBlock(Graphics g, int x, int y, Color color) {
         g.setColor(color);
         g.fillRect(x * CELL_SIZE + BORDER_WIDTH, y * CELL_SIZE + BORDER_WIDTH, CELL_SIZE, CELL_SIZE);

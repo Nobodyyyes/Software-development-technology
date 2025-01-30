@@ -44,6 +44,13 @@ public class Model {
         return color;
     }
 
+    /**
+     * Rotates the current model 90 degrees clockwise if the rotation is valid.
+     *
+     * @param boardWidth  the width of the board
+     * @param boardHeight the height of the board
+     * @param grid        the current state of the board grid
+     */
     public void rotate(int boardWidth, int boardHeight, int[][] grid) {
         int rows = shape.length;
         int cols = shape[0].length;
@@ -71,21 +78,14 @@ public class Model {
         shape = rotatedFigure;
     }
 
+    /**
+     * Generates a random color.
+     *
+     * @return a Color object with random RGB values.
+     */
     private Color generateRandomColor() {
         Random random = new Random();
         return new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256));
-    }
-
-    public Color getColorCode(int colorCode) {
-        return switch (colorCode) {
-            case 1 -> Color.BLUE;
-            case 2 -> Color.RED;
-            case 3 -> Color.YELLOW;
-            case 4 -> Color.GRAY;
-            case 5 -> Color.GREEN;
-            case 6 -> Color.ORANGE;
-            default -> Color.BLACK;
-        };
     }
 }
 
