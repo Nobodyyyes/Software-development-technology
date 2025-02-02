@@ -248,4 +248,11 @@ public class Board {
         }
         Arrays.fill(grid[0], 0);
     }
+
+    /**
+     * Reset player score.
+     */
+    public void resetScore() {
+        this.score = 0;
+    }
 }

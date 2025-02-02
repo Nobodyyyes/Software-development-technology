@@ -88,4 +88,3 @@ public class Model {
         return new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256));
     }
 }
-

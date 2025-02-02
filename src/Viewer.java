@@ -7,11 +7,13 @@ import java.awt.*;
 public class Viewer extends JPanel {
 
     private Board board;
+    private String playerName;
     private static final int CELL_SIZE = 30;
     private static final int BORDER_WIDTH = 5;
 
-    public Viewer(Board board) {
+    public Viewer(Board board, String playerName) {
         this.board = board;
+        this.playerName = playerName;
         setPreferredSize(new Dimension(board.getGrid()[0].length * CELL_SIZE + 2 * BORDER_WIDTH, board.getGrid().length * CELL_SIZE + 2 * BORDER_WIDTH));
         setBackground(Color.GRAY);
     }
@@ -50,6 +52,7 @@ public class Viewer extends JPanel {
         g.setColor(Color.WHITE);
         g.setFont(new Font("Arial", Font.BOLD, 20));
         g.drawString("Score: " + board.getScore(), 10, 20);
+        g.drawString("Player: " + playerName, 150, 20);
     }
 
     /**
